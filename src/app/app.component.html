@@ -1,0 +1,31 @@
+<div class="wrapper">
+
+  <!-- Navbar fixa em toda a aplicação -->
+  <mt-header></mt-header>
+
+  <!-- outlet, campo dinâmico que recebe a lógica das rotas
+  do arquivo routes.ts -->
+  <router-outlet></router-outlet>
+  
+
+  <!-- Full Width Column -->
+  <div class="content-wrapper">
+    <div class="container">
+
+      {{content}}
+
+    </div>
+  </div>
+  
+  
+  <!-- snakbar deve ser aqui -->
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="pull-right hidden-xs">
+        <b>Version</b> 1.0.0
+      </div>
+      <strong>Meat</strong> Angular Application
+    </div>
+  </footer>
+</div>
