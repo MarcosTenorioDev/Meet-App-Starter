@@ -18,6 +18,11 @@ export class RestaurantsComponent implements OnInit {
   ngOnInit() {
     this.restaurantsService.restaurants()
     .subscribe(restaurants => this.restaurants = restaurants)
+
+    /* Apenas ao fazer o subscribe que a requisição será feita.
+    Estrutura:função que atualiza o valor de restaurants, o listener e recebe a resposta
+    da requisição (melhorar e revisar essa explicação)
+     */
   }
 
 }
