@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Restaurant } from './restaurant/restaurant.model';
+import { restaurantsService } from './restaurants.service';
 
 @Component({
   selector: 'mt-restaurants',
@@ -8,29 +9,15 @@ import { Restaurant } from './restaurant/restaurant.model';
 export class RestaurantsComponent implements OnInit {
 
   /* Array de restaurantes que recebe objetos do tipo Restaurant */
+  restaurants: Restaurant[]
+  /* Injeção de dependências, injetei restaurantsServices e não é necessário instanciar manualmente */
+  constructor(private restaurantsService: restaurantsService) { }
 
-  restaurants: Restaurant[] = [{
-    id: "bread-bakery",
-    name: "Bread & Bakery",
-    category: "Bakery",
-    deliveryEstimate: "25m",
-    rating: 4.9,
-    imagePath: "assets/img/restaurants/breadbakery.png",
-  }, {
-    id: "burger-house",
-    name: "Burger House",
-    category: "Hamburgers",
-    deliveryEstimate: "100m",
-    rating: 3.5,
-    imagePath: "assets/img/restaurants/burgerhouse.png",
-  },]
-
-
-
-
-  constructor() { }
-
+  /* No inicio do componente, roda a função ngOnInit que atribui a restaurants a função restaurants()
+  Da classe restaurantsService*/
   ngOnInit() {
+    this.restaurantsService.restaurants()
+    .subscribe(restaurants => this.restaurants = restaurants)
   }
 
 }

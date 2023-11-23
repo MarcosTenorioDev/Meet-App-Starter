@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
@@ -11,7 +11,8 @@ import { AboutComponent } from './about/about.component'
 import { ROUTES } from './app.routes';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantComponent } from '../app/restaurants/restaurant/restaurant.component';
-          
+import { restaurantsService } from './restaurants/restaurants.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,7 @@ import { RestaurantComponent } from '../app/restaurants/restaurant/restaurant.co
     RouterModule.forRoot(ROUTES)
     /* importação de módulos, inclusive o modo de roteamento */
   ],
-  providers: [],
+  providers: [restaurantsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
