@@ -19,9 +19,11 @@ export class RestaurantsComponent implements OnInit {
     this.restaurantsService.restaurants()
     .subscribe(restaurants => this.restaurants = restaurants)
 
-    /* Apenas ao fazer o subscribe que a requisição será feita.
-    Estrutura:função que atualiza o valor de restaurants, o listener e recebe a resposta
-    da requisição (melhorar e revisar essa explicação)
+    /* O subscribe é o método do serviço http do angular
+    que é responsável por ficar na função de listener, aguardando
+    as respostas por stream. Dentro do método, é passado uma função
+    que vai ser responsável por tratar o dado recebido.
+    Nesse caso, atribuindo a resposta ao atributo dessa classe.
      */
   }
 
